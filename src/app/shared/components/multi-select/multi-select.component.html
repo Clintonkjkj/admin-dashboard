@@ -1,0 +1,14 @@
+<ng-select
+  #multiSelect
+  [multiple]="true"
+  [items]="optionArray"
+  [(ngModel)]="inputData"
+  (change)="optionChange($event)"
+  (click)="onClick.emit($event)"
+  (click)="onClick.emit($event)"
+  (keydown.enter)="onEdited.emit($event)"
+  (keydown.esc)="onStopEditing.emit()"
+>
+  <ng-option *ngFor="let option of optionArray">{{ option }}</ng-option>
+</ng-select>
+<div [hidden]="true" [innerHTML]="cell.getValue()" #htmlValue></div>
